@@ -1,0 +1,72 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+.button_active {
+  background-color: #FCE706;
+  box-shadow: 1px 0px 24px 12px #FCE706;
+  -webkit-box-shadow: 1px 0px 24px 12px #FCE706;
+  -moz-box-shadow: 1px 0px 24px 12px #FCE706;
+  -o-box-shadow: 1px 0px 24px 12px #FCE706;
+}
+
+.myBtn {
+    background: url(../images/Play-50.png) no-repeat;
+    // cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border: none;
+    &.unChosen {
+      opacity: 0.5;
+    }
+}
+
+.myError {
+  color: red;
+}
+
+.resultColorBlack {
+  color: black;
+}
+.resultColorGreen {
+  color: #1ABC9C;
+}
+.resultColorRed {
+  color: red;
+}
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+
+/* Custom page footer */
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+}

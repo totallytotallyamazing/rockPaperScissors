@@ -1,0 +1,46 @@
+<!-- 2 states of heading -->
+<h3 ng-if="state1 === 'unChosen'" ng-model="choose.choice">Make Choice then Play</h3>
+<h3 ng-if="state1 === 'default'" ng-model="choose.choice"> {{choose.choice}} it is...</h3>
+<!-- 2 states of well -->
+<div class="well" ng-if="state1 === 'unChosen'">Your Choice is?</div>
+<div class="well" ng-if="state1 === 'default'">If you&#8217;re sure about {{choose.choice}} hit Play.</div> 
+
+<form name="addChoiceForm" ng-submit="addChoice()">
+    <div class="row">
+        <div class="col-xs-4">
+            <img class="center-block" src="../images/Rock-50.png" ng-class="{'button_active': isActive('rock')}" ng-click="setActive('rock'); choose.choice = 'Rock'; state1 = 'default'; error.message = {}" ng-model="choose.choice" />
+        </div>
+        <div class="col-xs-4">
+            <img class="center-block" src="../images/Paper-50.png" ng-class="{'button_active': isActive('paper')}" ng-click="setActive('paper'); choose.choice = 'Paper'; state1 = 'default'; error.message = {}" ng-model="choose.choice" />
+        </div>
+        <div class="col-xs-4">
+            <img class="center-block" src="../images/Scissors-50.png" ng-class="{'button_active': isActive('scissors')}" ng-click="setActive('scissors'); choose.choice = 'Scissors'; state1 = 'default'; error.message = {}" ng-model="choose.choice" />
+        </div>
+    </div>
+    
+    <hr />
+
+    <div class="row">
+        <div class="col-xs-12">
+            <button ng-if="state1 === 'unChosen'" class="myBtn unChosen center-block" value="submit" ng-disabled="state1 === 'unChosen'"></button>
+            <button ng-if="state1 === 'default'" class="myBtn center-block" value="submit" ng-disabled="state1 === 'unChosen'"></button>
+        </div>
+    </div>
+</form>
+
+<hr />
+<!-- 2 states of results -->
+<div class="well" ng-if="state2 === 'unPlayed'"><strong>Results:</strong></div>
+<div class="well" ng-if="state2 === 'default'">
+    <strong>Results:</strong> You: <strong>{{data.playerChoice}}</strong> &nbsp;&nbsp;&nbsp; Computer: <strong>{{data.computerChoice}}</strong> &nbsp;&nbsp;&nbsp; You: <strong ng-class="{'resultColorBlack': resultColor === 'black', 'resultColorGreen': resultColor === 'green', 'resultColorRed': resultColor === 'red'}">{{data.result}}</strong>
+</div>
+<!-- scores -->
+<div class="well">
+    <strong>Scores:</strong><br />
+    Yours: <strong>{{userScore}}</strong><br />
+    Computers: <strong>{{computerScore}}</strong>
+</div>
+<!-- error span -->
+<div class="well myError" ng-if="error.message === 'Internal Server Error'">
+   <strong>Sorry there was a Purposeful Internal Service Error. Play again everything is fine</strong>
+</div>
